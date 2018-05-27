@@ -146,7 +146,7 @@
 <meta property="og:site_name" content="日出东方">
 <meta property="og:description" content="1. ansible主机清单的配置vim /etc/ansible/hosts 定义方式： 直接指明主机地址或主机名12blue.example.com192.168.100.1 定义一个主机组[组名]把地址或主机名加进去 1234567[webservers]alpha.example.orgbeta.example.org192.168.1.100#组成员可以使用通配符来匹配，如下www[00">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-27T12:18:40.958Z">
+<meta property="og:updated_time" content="2018-05-27T12:21:02.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ansible常用命令">
 <meta name="twitter:description" content="1. ansible主机清单的配置vim /etc/ansible/hosts 定义方式： 直接指明主机地址或主机名12blue.example.com192.168.100.1 定义一个主机组[组名]把地址或主机名加进去 1234567[webservers]alpha.example.orgbeta.example.org192.168.1.100#组成员可以使用通配符来匹配，如下www[00">
@@ -422,7 +422,7 @@
 <li>如果你没有使用公钥，想要使用密码，你也可以这样写（适用于第一次登陆控制）</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式：【主机名】 【主机地址】 【主机密码】  默认是root用户来进行的</span><br><span class="line">[keepalived]</span><br><span class="line">keepalived1  ansible_ssh_host=192.168.146.136  ansible_ssh_user=chdb ansible_ssh_pass=&quot;test&quot;</span><br><span class="line">keepalived2  ansible_ssh_host=192.168.146.137 ansible_ssh_pass=&quot;test&quot;</span><br></pre></td></tr></table></figure>
- <a id="more"></a>
+<a id="more"></a>
 <h2 id="2-ansible的使用ansible-doc"><a href="#2-ansible的使用ansible-doc" class="headerlink" title="2. ansible的使用ansible-doc"></a>2. ansible的使用<code>ansible-doc</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一般用法:</span><br><span class="line">ansible-doc -l 获取模块信息</span><br><span class="line">ansible-doc -s MOD_NAME 获取指定模块的使用帮助</span><br></pre></td></tr></table></figure>
 <h2 id="3-ansible使用-之一-“命令管理方式”"><a href="#3-ansible使用-之一-“命令管理方式”" class="headerlink" title="3. ansible使用 之一 “命令管理方式”"></a>3. ansible使用 之一 “命令管理方式”</h2><h3 id="常用模块："><a href="#常用模块：" class="headerlink" title="常用模块："></a>常用模块：</h3><p>=================================<br><strong>ping：探测目标主机是否存活；</strong></p>
 <p>ping模块主要是无意义的测试模块，主要用来检查ansible是否可以用的模块以及python是否配置好的，在playbook中基本不会使用，在能成功连接之后，总是返回结果</p>
