@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,185
+                  2,228
                 </span>
               
 
@@ -497,17 +497,7 @@
 
       
         
-          <h2 id="1-ansible主机清单的配置"><a href="#1-ansible主机清单的配置" class="headerlink" title="1. ansible主机清单的配置"></a>1. ansible主机清单的配置</h2><p><strong>vim /etc/ansible/hosts</strong></p>
-<p><strong>定义方式：</strong></p>
-<p>直接指明主机地址或主机名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blue.example.com</span><br><span class="line">192.168.100.1</span><br></pre></td></tr></table></figure></p>
-<p>定义一个主机组<code>[组名]</code>把地址或主机名加进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[webservers]</span><br><span class="line">alpha.example.org</span><br><span class="line">beta.example.org</span><br><span class="line">192.168.1.100</span><br><span class="line"></span><br><span class="line">#组成员可以使用通配符来匹配，如下</span><br><span class="line">www[001:006].example.com  #表示从www001-www006主机</span><br></pre></td></tr></table></figure>
-<p>  嵌套</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[webservers]</span><br><span class="line">192.168.3.49 ansible_ssh_user=chdb ansible_ssh_pass=HF*cb303</span><br><span class="line">[dbservers]</span><br><span class="line">192.168.3.62</span><br><span class="line">[wolf:children]</span><br><span class="line">webservers</span><br><span class="line">dbservers</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果你没有使用公钥，想要使用密码，你也可以这样写（适用于第一次登陆控制）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式：【主机名】 【主机地址】 【主机密码】  默认是root用户来进行的</span><br><span class="line">[keepalived]</span><br><span class="line">keepalived1  ansible_ssh_host=192.168.146.136  ansible_ssh_user=chdb ansible_ssh_pass=&quot;test&quot;</span><br><span class="line">keepalived2  ansible_ssh_host=192.168.146.137 ansible_ssh_pass=&quot;test&quot;</span><br></pre></td></tr></table></figure>
+          <div class="note primary"><p>本文主要介绍ansible的主机组配置，简单阐述ansible常用模块的使用方法，设计到的模块有ping，shell，command，script，file，fetch等内容。</p></div>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/27/ansible常用命令/#more" rel="contents">
@@ -672,17 +662,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">ls -lart</span><br><span class="line">find . -name  <span class="string">"*c"</span>|xargs grep int</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/27/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
