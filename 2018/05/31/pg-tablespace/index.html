@@ -144,7 +144,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="postgres," />
 
 
 
@@ -155,17 +155,18 @@
 
 
 
-<meta name="description" content="盛年不重来，一日难再晨;及时当勉励，岁月不待人。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="表空间：字面上理解就是表存储的物理空间，其实包括数据库的表、索引、序列等。 可以将表空间创建在服务器的不同分区，这样做的好处有： 一、如果初始化集群所在分区已经用光，可以方便的其他分区上创建表空间已达到扩容的目的。 二、对于频繁访问的数据可以存储在性能较高、较快的磁盘分区上，而不常用的数据存储在便宜的较慢的磁盘分区上。">
+<meta name="keywords" content="postgres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postgresql 表空间创建、删除">
+<meta property="og:url" content="http://yoursite.com/2018/05/31/pg-tablespace/index.html">
 <meta property="og:site_name" content="日出东方">
-<meta property="og:description" content="盛年不重来，一日难再晨;及时当勉励，岁月不待人。">
+<meta property="og:description" content="表空间：字面上理解就是表存储的物理空间，其实包括数据库的表、索引、序列等。 可以将表空间创建在服务器的不同分区，这样做的好处有： 一、如果初始化集群所在分区已经用光，可以方便的其他分区上创建表空间已达到扩容的目的。 二、对于频繁访问的数据可以存储在性能较高、较快的磁盘分区上，而不常用的数据存储在便宜的较慢的磁盘分区上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-27T08:56:04.208Z">
+<meta property="og:updated_time" content="2018-05-31T14:33:25.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="盛年不重来，一日难再晨;及时当勉励，岁月不待人。">
+<meta name="twitter:title" content="postgresql 表空间创建、删除">
+<meta name="twitter:description" content="表空间：字面上理解就是表存储的物理空间，其实包括数据库的表、索引、序列等。 可以将表空间创建在服务器的不同分区，这样做的好处有： 一、如果初始化集群所在分区已经用光，可以方便的其他分区上创建表空间已达到扩容的目的。 二、对于频繁访问的数据可以存储在性能较高、较快的磁盘分区上，而不常用的数据存储在便宜的较慢的磁盘分区上。">
 
 
 
@@ -195,13 +196,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/31/pg-tablespace/"/>
 
 
 
 
 
-  <title>分类 | 日出东方</title>
+  <title>postgresql 表空间创建、删除 | 日出东方</title>
   
 
 
@@ -360,40 +361,325 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/pg-tablespace/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZHD">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="日出东方">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 2 个分类
+          <h1 class="post-title" itemprop="name headline">postgresql 表空间创建、删除</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T22:23:11+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/postgres/" itemprop="url" rel="index">
+                    <span itemprop="name">postgres</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  587
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ansible/">ansible</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgres/">postgres</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <div class="note info"><p>表空间：字面上理解就是表存储的物理空间，其实包括数据库的表、索引、序列等。</p>
+<p>可以将表空间创建在服务器的不同分区，这样做的好处有：</p>
+<p>一、如果初始化集群所在分区已经用光，可以方便的其他分区上创建表空间已达到扩容的目的。</p>
+<p>二、对于频繁访问的数据可以存储在性能较高、较快的磁盘分区上，而不常用的数据存储在便宜的较慢的磁盘分区上。</p></div>
+<a id="more"></a>
+<h1 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h1><p>语法：</p>
+<p>postgres=# \h create tablespace<br>Command:     CREATE TABLESPACE<br>Description: define a new tablespace<br>Syntax:<br>CREATE TABLESPACE tablespace_name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ OWNER user_name ]</span><br><span class="line">LOCATION &apos;directory&apos;</span><br><span class="line">[ WITH ( tablespace_option = value [, ... ] ) ]</span><br></pre></td></tr></table></figure>
+<p>用户必须有表空间所在目录访问权限，所以在创建表空间之前需要在对应分区下创建相应的目录，并为其分配权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# mkdir /usr/local/pgdata</span><br><span class="line">[root@localhost ~]# chown postgres:postgres /usr/local/pgdata/</span><br></pre></td></tr></table></figure>
+<p> 创建表空间示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">postgres=# create tablespace tbs_test owner postgres location '/usr/local/pgdata';</span><br><span class="line">CREATE TABLESPACE</span><br></pre></td></tr></table></figure>
+<p>创建表空间成功后，可在数据库集群目录下看到一个新增的目录pg_tblspc下有一个连接文件51276,指向到/usr/local/pgdata下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /mnt/syncdata/pgsql941/data/pg_tblspc/</span><br><span class="line">total 0</span><br><span class="line">lrwxrwxrwx. 1 postgres postgres 17 Aug 30 02:06 51276 -&gt; /usr/local/pgdata</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /usr/local/pgdata/</span><br><span class="line">total 4</span><br><span class="line">drwx------. 2 postgres postgres 4096 Aug 30 02:06 PG_9.4_201409291</span><br></pre></td></tr></table></figure>
+<p>在此表空间内创建表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">postgres=# create table test(a int) tablespace tbs_test;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span><br></pre></td></tr></table></figure>
+<p>现在在表空间目录下就会新增一个test表对应的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /usr/local/pgdata/PG_9.4_201409291/13003/51277 </span><br><span class="line">-rw-------. 1 postgres postgres 0 Aug 30 02:15 /usr/local/pgdata/PG_9.4_201409291/13003/51277</span><br></pre></td></tr></table></figure>
+<p>其中51277对应的是test表的relfilenode，13003是数据库postgres的oid。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">postgres=# select oid,datname from pg_database where datname = 'postgres';</span><br><span class="line">  oid  | datname  </span><br><span class="line"><span class="comment">-------+----------</span></span><br><span class="line"> 13003 | postgres</span><br><span class="line">(1 row)</span><br><span class="line"></span><br><span class="line">postgres=# select relname,relfilenode from pg_class where relname='test';</span><br><span class="line"> relname | relfilenode </span><br><span class="line"><span class="comment">---------+-------------</span></span><br><span class="line"> test    |       51277</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure>
+<h1 id="删除表空"><a href="#删除表空" class="headerlink" title="删除表空"></a>删除表空</h1><p>postgres=# \h drop tablespace<br>Command:     DROP TABLESPACE<br>Description: remove a tablespace<br>Syntax:<br>DROP TABLESPACE [ IF EXISTS ] name</p>
+<p>删除表空间前必须要删除该表空间下的所有数据库对象，否则无法删除。</p>
+<p>如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">postgres=# drop tablespace if exists tbs_test;</span><br><span class="line">ERROR:  tablespace "tbs_test" is not empty</span><br></pre></td></tr></table></figure>
+<p>删除刚才在此表空间创建的表test，然后再删除表空间。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">postgres=# drop table if exists test;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span></span><br><span class="line">postgres=# <span class="keyword">drop</span> <span class="keyword">tablespace</span> <span class="keyword">if</span> <span class="keyword">exists</span> tbs_test;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2018/05/31/pg-tablespace/">postgresql 表空间创建、删除</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ZHD 的个人博客">ZHD</a></p>
+  <p><span>发布时间:</span>2018年05月31日 - 22:05</p>
+  <p><span>最后更新:</span>2018年05月31日 - 22:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/31/pg-tablespace/" title="postgresql 表空间创建、删除">http://yoursite.com/2018/05/31/pg-tablespace/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/05/31/pg-tablespace/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ZHD 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ZHD 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/postgres/" rel="tag"># postgres</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/31/corosync-pg/" rel="next" title="corosync+ pacemaker实现pg流复制自动切换">
+                <i class="fa fa-chevron-left"></i> corosync+ pacemaker实现pg流复制自动切换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
   </div>
 
 
@@ -402,6 +688,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -422,8 +712,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -533,6 +832,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建表空间"><span class="nav-number">1.</span> <span class="nav-text">创建表空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除表空"><span class="nav-number">2.</span> <span class="nav-text">删除表空</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
