@@ -587,7 +587,7 @@
 <li>./setup.sh会清除CIB，对Pacemaker资源定义的修改应该写到config.pcs里，防止下次执行setup.sh丢失。</li>
 <li>有些包装后的脚本容易超时，比如<code>cls_rebuild_slave</code>。此时可能执行还没有完成的，需要通过<code>cls_status</code>或日志进行确认。</li>
 </ol>
-<h3 id="pg-log-和pg-xlog-和pg-clog的区别"><a href="#pg-log-和pg-xlog-和pg-clog的区别" class="headerlink" title="pg_log 和pg_xlog 和pg_clog的区别"></a>pg_log 和pg_xlog 和pg_clog的区别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>pg_xlog</span><br><span class="line">这个日志是记录的Postgresql的WAL信息，也就是一些事务日志信息(transaction log)，默认单个大小是16M，源码安装的时候可以更改其大小。这些信息通常名字是类似'000000010000000000000013'这样的文件，这些日志会在定时回滚恢复(PITR)，流复制(Replication Stream)以及归档时能被用到，这些日志是非常重要的，记录着数据库发生的各种事务信息，不得随意删除或者移动这类日志文件，不然你的数据库会有无法恢复的风险</span><br><span class="line"></span><br><span class="line">当你的归档或者流复制发生异常的时候，事务日志会不断地生成，有可能会造成你的磁盘空间被塞满，最终导致DB挂掉或者起不来。遇到这种情况不用慌，可以先关闭归档或者流复制功能，备份pg_xlog日志到其他地方，但请不要删除。然后删除较早时间的的pg_xlog，有一定空间后再试着启动Postgres。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>pg_clog</span><br><span class="line">pg_clog这个文件也是事务日志文件，但与pg_xlog不同的是它记录的是事务的元数据(metadata)，这个日志告诉我们哪些事务完成了，哪些没有完成。这个日志文件一般非常小，但是重要性也是相当高，不得随意删除或者对其更改信息。</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line"><span class="meta">#</span>pg_log记录各种Error信息，以及服务器与DB的状态信息，可由用户随意更新删除</span><br><span class="line"><span class="meta">#</span>pg_xlog与pg_clog记录数据库的事务信息，不得随意删除更新，做物理备份时要记得备份着两个日志。</span><br></pre></td></tr></table></figure>
+<h3 id="pg-log-和pg-xlog-和pg-clog的区别"><a href="#pg-log-和pg-xlog-和pg-clog的区别" class="headerlink" title="pg_log 和pg_xlog 和pg_clog的区别"></a>pg_log 和pg_xlog 和pg_clog的区别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">pg_xlog</span></span><br><span class="line">这个日志是记录的Postgresql的WAL信息，也就是一些事务日志信息(transaction log)，默认单个大小是16M，源码安装的时候可以更改其大小。这些信息通常名字是类似'000000010000000000000013'这样的文件，这些日志会在定时回滚恢复(PITR)，流复制(Replication Stream)以及归档时能被用到，这些日志是非常重要的，记录着数据库发生的各种事务信息，不得随意删除或者移动这类日志文件，不然你的数据库会有无法恢复的风险</span><br><span class="line"></span><br><span class="line">当你的归档或者流复制发生异常的时候，事务日志会不断地生成，有可能会造成你的磁盘空间被塞满，最终导致DB挂掉或者起不来。遇到这种情况不用慌，可以先关闭归档或者流复制功能，备份pg_xlog日志到其他地方，但请不要删除。然后删除较早时间的的pg_xlog，有一定空间后再试着启动Postgres。</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">pg_clog</span></span><br><span class="line">pg_clog这个文件也是事务日志文件，但与pg_xlog不同的是它记录的是事务的元数据(metadata)，这个日志告诉我们哪些事务完成了，哪些没有完成。这个日志文件一般非常小，但是重要性也是相当高，不得随意删除或者对其更改信息。</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line"><span class="meta">#</span><span class="bash">pg_log记录各种Error信息，以及服务器与DB的状态信息，可由用户随意更新删除</span></span><br><span class="line"><span class="meta">#</span><span class="bash">pg_xlog与pg_clog记录数据库的事务信息，不得随意删除更新，做物理备份时要记得备份着两个日志。</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -758,6 +758,11 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjk4NS8xMzUyMQ=="></div>
+    </div>
 
   
 
@@ -1110,6 +1115,17 @@ var jiathis_config={
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
