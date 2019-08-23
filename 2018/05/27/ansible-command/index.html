@@ -159,7 +159,7 @@
 <meta name="keywords" content="ansible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ansible常用命令">
-<meta property="og:url" content="http://yoursite.com/2018/05/27/ansible常用命令/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/ansible-command/index.html">
 <meta property="og:site_name" content="日出东方">
 <meta property="og:description" content="本文主要介绍ansible的主机组配置，简单阐述ansible常用模块的使用方法，设计到的模块有ping，shell，command，script，file，fetch等内容。">
 <meta property="og:locale" content="zh-Hans">
@@ -196,7 +196,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/27/ansible常用命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/27/ansible-command/"/>
 
 
 
@@ -383,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/ansible常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/ansible-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZHD">
@@ -555,7 +555,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible pythonserver -m file -a &quot;src=/tmp/1 dest=/tmp/2 owner=kel state=link&quot;</span><br></pre></td></tr></table></figure>
 <p>==============================<br><strong>fetch：</strong> 从远程某一个主机获取文件到本地</p>
 <p>文件拉取模块主要是将远程主机中的文件拷贝到本机中，和copy模块的作用刚刚相反，并且在保存的时候使用hostname来进行保存，当文件不存在的时候，会出现错误，除非设置了选项fail_on_missing为yes</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ansible pythonserver -m fetch -a "src=/root/123 dest=/root"</span><br><span class="line">192.168.1.60 | success &gt;&gt; &#123;</span><br><span class="line">    "changed": true,</span><br><span class="line">    "dest": "/root/192.168.1.60/root/123",</span><br><span class="line">    "md5sum": "31be5a34915d52fe0a433d9278e99cac",</span><br><span class="line">    "remote_md5sum": "31be5a34915d52fe0a433d9278e99cac"</span><br><span class="line">&#125;</span><br><span class="line">src表示为远程主机上需要传送的文件路径，dest表示为本机上的路径，在传送过来的文件，是按照IP地址进行分类，然后路径是源文件的路径</span><br><span class="line"><span class="meta">#</span><span class="bash">在拉取文件的时候，必须拉取的是文件，不能拉取文件夹</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ansible pythonserver -m fetch -a "src=/root/123 dest=/root"</span><br><span class="line">192.168.1.60 | success &gt;&gt; &#123;</span><br><span class="line">    "changed": true,</span><br><span class="line">    "dest": "/root/192.168.1.60/root/123",</span><br><span class="line">    "md5sum": "31be5a34915d52fe0a433d9278e99cac",</span><br><span class="line">    "remote_md5sum": "31be5a34915d52fe0a433d9278e99cac"</span><br><span class="line">&#125;</span><br><span class="line">src表示为远程主机上需要传送的文件路径，dest表示为本机上的路径，在传送过来的文件，是按照IP地址进行分类，然后路径是源文件的路径</span><br><span class="line"><span class="meta">#</span>在拉取文件的时候，必须拉取的是文件，不能拉取文件夹</span><br></pre></td></tr></table></figure>
 <p>==============================</p>
 <p>==============================</p>
 <p>hostname: 修改主机名称</p>
@@ -598,12 +598,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><span>本文标题:</span><a href="/2018/05/27/ansible常用命令/">ansible常用命令</a></p>
+  <p><span>本文标题:</span><a href="/2018/05/27/ansible-command/">ansible常用命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ZHD 的个人博客">ZHD</a></p>
   <p><span>发布时间:</span>2018年05月27日 - 19:05</p>
   <p><span>最后更新:</span>2018年05月31日 - 21:05</p>
-  <p><span>原始链接:</span><a href="/2018/05/27/ansible常用命令/" title="ansible常用命令">http://yoursite.com/2018/05/27/ansible常用命令/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/05/27/ansible常用命令/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2018/05/27/ansible-command/" title="ansible常用命令">http://yoursite.com/2018/05/27/ansible-command/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/05/27/ansible-command/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -687,7 +687,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/31/postgres摘要/" rel="prev" title="postgres日常使用">
+              <a href="/2018/05/31/postgressql/" rel="prev" title="postgres日常使用">
                 postgres日常使用 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -801,7 +801,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -812,7 +812,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -823,7 +823,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -944,7 +944,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.5k字</span>
+  <span class="post-count">博客全站共21.5k字</span>
 </div>
 
 
