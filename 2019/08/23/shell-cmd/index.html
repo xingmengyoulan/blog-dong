@@ -163,10 +163,20 @@
 <meta property="og:site_name" content="日出东方">
 <meta property="og:description" content="记录平时使用频繁的系统命令，例如快速删除日志，修改主机名，修改静态网络">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-23T15:33:31.105Z">
+<meta property="og:image" content="http://p3.pstatp.com/large/pgc-image/13ccb4e345394a6c9588a654fe40243c">
+<meta property="og:image" content="http://p1.pstatp.com/large/pgc-image/ebd8bf36784640e39c87ebbe8a437015">
+<meta property="og:image" content="http://p1.pstatp.com/large/pgc-image/246b925610da478d82764b9fbba83d62">
+<meta property="og:image" content="http://p3.pstatp.com/large/pgc-image/b2ca753bc4134899af09c777e495e788">
+<meta property="og:image" content="http://p1.pstatp.com/large/pgc-image/0b2b26175ccc48be885c5d699b5983ae">
+<meta property="og:image" content="http://p9.pstatp.com/large/pgc-image/81e677d77bb64aa0b20e9664e2f9caf0">
+<meta property="og:image" content="http://p3.pstatp.com/large/pgc-image/1a8f88b032ba4c5aac80bfdd5fee0a0c">
+<meta property="og:image" content="http://p3.pstatp.com/large/pgc-image/9aadbdb6273844ad8f0dc7a0bac66d56">
+<meta property="og:image" content="http://p3.pstatp.com/large/pgc-image/cd890aaf25094746994343522cc241b1">
+<meta property="og:updated_time" content="2020-03-02T08:46:36.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell常用命令">
 <meta name="twitter:description" content="记录平时使用频繁的系统命令，例如快速删除日志，修改主机名，修改静态网络">
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/13ccb4e345394a6c9588a654fe40243c">
 
 
 
@@ -468,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  182
+                  683
                 </span>
               
 
@@ -484,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -508,9 +518,35 @@
         <div class="note primary"><p>记录平时使用频繁的系统命令，例如快速删除日志，修改主机名，修改静态网络</p></div>
 <a id="more"></a>
 <h3 id="修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。"><a href="#修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。" class="headerlink" title="修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。"></a>修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod o+r /app</span><br></pre></td></tr></table></figure>
-<h3 id="centos永久关闭防火墙"><a href="#centos永久关闭防火墙" class="headerlink" title="centos永久关闭防火墙"></a>centos永久关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 关闭iptables</span></span><br><span class="line">/etc/init.d/iptables stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 永久关闭</span></span><br><span class="line">chkconfig iptables off</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查</span></span><br><span class="line">chkconfig --list iptables</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭selinux</span></span><br><span class="line">setenforce 0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 永久关闭selinux</span></span><br><span class="line">sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config</span><br></pre></td></tr></table></figure>
+<h3 id="centos永久关闭防火墙"><a href="#centos永久关闭防火墙" class="headerlink" title="centos永久关闭防火墙"></a>centos永久关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭iptables</span><br><span class="line">/etc/init.d/iptables stop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 永久关闭</span><br><span class="line">chkconfig iptables off</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 检查</span><br><span class="line">chkconfig --list iptables</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 关闭selinux</span><br><span class="line">setenforce 0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 永久关闭selinux</span><br><span class="line">sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config</span><br></pre></td></tr></table></figure>
 <h3 id="根据文档内容分组计数"><a href="#根据文档内容分组计数" class="headerlink" title="根据文档内容分组计数"></a>根据文档内容分组计数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat lsof.txt |awk '&#123;++PID[$2]&#125; END &#123;for(key in PID) print key,'\t',PID[key]&#125;'|sort -nk 2</span><br></pre></td></tr></table></figure>
 <p>查看进程时间<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eo comm,lstart|grep server |sort -u |awk -F ":" '&#123;printf("%s,%s\n",$1,$2)&#125;|sort -u</span><br></pre></td></tr></table></figure></p>
+<h3 id="编写shell脚本注意事项"><a href="#编写shell脚本注意事项" class="headerlink" title="编写shell脚本注意事项"></a>编写shell脚本注意事项</h3><p><strong>1.使用readonly和local修饰变量</strong></p>
+<p><img src="http://p3.pstatp.com/large/pgc-image/13ccb4e345394a6c9588a654fe40243c" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">readonly</span><br><span class="line">顾名思义，只读。</span><br><span class="line">local</span><br><span class="line">函数内变量。</span><br><span class="line">别图省事，提高安全性的同时，能避免很多让人崩溃的莫名其妙的错误。脚本写得专不专业，往往不是什么高深的点，从基本功绝逼能体现。</span><br><span class="line">画外音：据说，一个C++程序员到什么水平，从ta代码里const的使用频度，能够看出来。</span><br></pre></td></tr></table></figure>
+<p><strong>2. 使用$()代替`(反单引号)</strong></p>
+<p><img src="http://p1.pstatp.com/large/pgc-image/ebd8bf36784640e39c87ebbe8a437015" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">为什么？看了上面的例子你就懂了：</span><br><span class="line">（1）$()能够支持内嵌；</span><br><span class="line">（2）$()不用转义；</span><br><span class="line">（3）有些字体，`(反单引号)和’(单引号)很像，容易把人搞晕；</span><br></pre></td></tr></table></figure>
+<p><strong>3. 使用[[]]代替[]</strong></p>
+<p>用单中括号：</p>
+<p><img src="http://p1.pstatp.com/large/pgc-image/246b925610da478d82764b9fbba83d62" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<p>用双中括号：</p>
+<p><img src="http://p3.pstatp.com/large/pgc-image/b2ca753bc4134899af09c777e495e788" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">看出差别了么？[[]]更符合人性编码：</span><br><span class="line">（1）避免转义问题；</span><br><span class="line">（2）有不少新功能；</span><br><span class="line">新功能包含但不限于：</span><br><span class="line">|| ：逻辑or</span><br><span class="line">&amp;&amp; ：逻辑and</span><br><span class="line">&lt; ：字符串比较（不需要转义）</span><br><span class="line">== ：通配符(globbing)字符串比较</span><br><span class="line">=~ ：正则表达式(regular expression, RegEx)字符串比较</span><br></pre></td></tr></table></figure>
+<p><img src="http://p1.pstatp.com/large/pgc-image/0b2b26175ccc48be885c5d699b5983ae" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要注意的是，从bash3.2开始，通配符和正则表达式都不能用引号包裹了（所以，上面的例子，加了引号就是字面比较）。</span><br></pre></td></tr></table></figure>
+<p><img src="http://p9.pstatp.com/large/pgc-image/81e677d77bb64aa0b20e9664e2f9caf0" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所以如果表达式里有空格，必须存储到一个变量里，再进行通配符与正则的比较。</span><br></pre></td></tr></table></figure>
+<p><strong>4. echo不是唯一的调试方法</strong></p>
+<p><img src="http://p3.pstatp.com/large/pgc-image/1a8f88b032ba4c5aac80bfdd5fee0a0c" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以用-n对脚本进行语法检查。</span><br></pre></td></tr></table></figure>
+<p><img src="http://p3.pstatp.com/large/pgc-image/9aadbdb6273844ad8f0dc7a0bac66d56" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以用-v跟踪脚本里的每个命令的执行。</span><br></pre></td></tr></table></figure>
+<p><img src="http://p3.pstatp.com/large/pgc-image/cd890aaf25094746994343522cc241b1" alt="6条shell小技巧，让脚本显得不再业余（1分钟系列）"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">可以用-x跟踪脚本里的每个命令的执行，并附加扩充信息。</span><br><span class="line">当然，也可以在脚本里，添加</span><br><span class="line">set -o verbose</span><br><span class="line">set -o xtrace</span><br><span class="line">来永久指定输出调试信息。</span><br></pre></td></tr></table></figure>
+<h3 id="awk-打印第2列到最后一列"><a href="#awk-打印第2列到最后一列" class="headerlink" title="awk 打印第2列到最后一列"></a>awk 打印第2列到最后一列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat TB_CUST_INFO.mod |awk -F &quot;|&quot; &apos;&#123;$1=&quot;&quot;; print $0&#125;&apos;|sed &apos;s/ /|/g&apos;</span><br></pre></td></tr></table></figure>
+<p>###传递多个参数脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf  "psc\n psr\n" |  tmadmin</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,7 +575,7 @@
   <p><span>本文标题:</span><a href="/2019/08/23/shell-cmd/">shell常用命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ZHD 的个人博客">ZHD</a></p>
   <p><span>发布时间:</span>2019年08月23日 - 23:08</p>
-  <p><span>最后更新:</span>2019年08月23日 - 23:08</p>
+  <p><span>最后更新:</span>2020年03月02日 - 16:03</p>
   <p><span>原始链接:</span><a href="/2019/08/23/shell-cmd/" title="shell常用命令">http://yoursite.com/2019/08/23/shell-cmd/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/23/shell-cmd/"  aria-label="复制成功！"></i></span>
   </p>
@@ -739,7 +775,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -750,7 +786,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -761,7 +797,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -840,7 +876,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。"><span class="nav-number">1.</span> <span class="nav-text">修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos永久关闭防火墙"><span class="nav-number">2.</span> <span class="nav-text">centos永久关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据文档内容分组计数"><span class="nav-number">3.</span> <span class="nav-text">根据文档内容分组计数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。"><span class="nav-number">1.</span> <span class="nav-text">修改目录权限，让view用户可以访问其他用户的内容，没有写的权限。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos永久关闭防火墙"><span class="nav-number">2.</span> <span class="nav-text">centos永久关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据文档内容分组计数"><span class="nav-number">3.</span> <span class="nav-text">根据文档内容分组计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写shell脚本注意事项"><span class="nav-number">4.</span> <span class="nav-text">编写shell脚本注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk-打印第2列到最后一列"><span class="nav-number">5.</span> <span class="nav-text">awk 打印第2列到最后一列</span></a></li></ol></div>
             
 
           </div>
@@ -861,7 +897,7 @@ var jiathis_config={
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -882,7 +918,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.5k字</span>
+  <span class="post-count">博客全站共48.5k字</span>
 </div>
 
 
